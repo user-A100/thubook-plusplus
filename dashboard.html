@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>THU 本地点评库</title>
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <div>
+        <p class="eyebrow">LOCAL COURSE ARCHIVE / 本地只读</p>
+        <h1>THU 本地点评库</h1>
+        <p class="lede">把备份放进浏览器。打开课程详情页时，插件只在你的页面上补充显示缺失点评。</p>
+      </div>
+      <div class="privacy-seal"><strong>0</strong><span>次上传<br />不会写入网站</span></div>
+    </header>
+
+    <main>
+      <section class="status-strip" aria-label="本地点评库状态">
+        <article><span>本地点评</span><strong id="review-count">0</strong></article>
+        <article><span>涉及课程</span><strong id="course-count">0</strong></article>
+        <article><span>显示状态</span><strong id="enabled-status" class="word">未启用</strong></article>
+        <article class="source"><span>当前来源</span><strong id="source-name" class="word">尚未导入</strong></article>
+      </section>
+
+      <section class="archive-shell">
+        <aside class="import-panel">
+          <p class="section-mark">把备份装入本地库</p>
+          <h2>选择点评数据</h2>
+          <p class="explain">公开仓库不附带任何点评备份。请选择你自己保存在本机的旧版 JSON，也可以同时选择课程 ID 映射文件。</p>
+
+          <label class="dedupe-option">
+            <input id="dedupe-toggle" type="checkbox" checked />
+            <span><strong>只载入网站缺失点评</strong><small>用点评原始 ID 与不含正文的公开索引精确比对</small></span>
+          </label>
+          <label class="file-button" for="backup-files">
+            <input id="backup-files" type="file" accept=".json,application/json" multiple />
+            选择其他 JSON 文件
+          </label>
+          <div id="import-note" class="note" role="status">请选择本机 JSON；文件内容只保存在这个浏览器扩展中。</div>
+
+          <div class="switch-row">
+            <div><strong>在课程页补充显示</strong><span>关闭后保留数据，但不修改页面显示。</span></div>
+            <label class="switch">
+              <input id="enabled-toggle" type="checkbox" />
+              <span aria-hidden="true"></span>
+            </label>
+          </div>
+
+          <button id="open-site-button" class="button secondary" type="button">打开 THU 选课社区</button>
+
+          <div class="boundary">
+            <strong>插件边界</strong>
+            <ul>
+              <li>不调用点评提交接口</li>
+              <li>不修改网站后端或 GitHub 数据</li>
+              <li>未安装插件的用户看不到本地点评</li>
+              <li>仅用 GET 请求读取当前课程，避免重复显示</li>
+            </ul>
+          </div>
+        </aside>
+
+        <section class="records">
+          <div class="records-head">
+            <div><p class="section-mark">LOCAL INDEX</p><h2>本地备份索引</h2></div>
+            <label class="search-field"><span>搜索</span><input id="search-input" type="search" placeholder="课程、教师或点评内容" /></label>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>课程</th><th>推荐</th><th>点评摘要</th><th>原时间</th></tr></thead>
+              <tbody id="records-body"></tbody>
+            </table>
+            <div id="empty-state" class="empty-state">载入备份后，这里会显示本地点评索引。</div>
+          </div>
+          <p id="records-limit" class="records-limit"></p>
+          <footer>
+            <button id="export-button" class="text-button" type="button">导出当前本地库</button>
+            <button id="clear-button" class="text-button destructive" type="button">清除本地库</button>
+          </footer>
+        </section>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="core.js"></script>
+    <script src="dashboard.js"></script>
+  </body>
+</html>

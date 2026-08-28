@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "THU 本地点评库",
+  "version": "2.4.1",
+  "description": "从本地备份为 THU 选课社区补充显示缺失点评，不向网站提交任何数据。",
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "THU 本地点评库",
+    "default_popup": "popup.html"
+  },
+  "options_page": "dashboard.html",
+  "web_accessible_resources": [
+    {
+      "resources": ["data/current-review-index.json"],
+      "matches": ["https://thubook.help/*"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://thubook.help/thucourse/*"
+      ],
+      "css": ["content.css"],
+      "js": ["core.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

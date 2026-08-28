@@ -1,0 +1,10 @@
+{
+  "name": "thucourse-local-review-library",
+  "version": "2.4.1",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/core.test.js",
+    "check": "node --check core.js && node --check background.js && node --check dashboard.js && node --check content.js && node --check popup.js",
+    "snapshot-current": "node tools/snapshot-current-reviews.mjs"
+  }
+}

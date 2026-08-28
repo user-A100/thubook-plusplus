@@ -1,0 +1,51 @@
+#thu-local-library-badge {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 2147483646;
+  border: 1px solid rgba(95, 44, 131, .25);
+  border-radius: 999px;
+  padding: 9px 13px;
+  color: #4a2465;
+  background: rgba(255, 255, 255, .94);
+  box-shadow: 0 8px 24px rgba(52, 32, 64, .14);
+  font: 700 11px/1.2 "Microsoft YaHei UI", "PingFang SC", sans-serif;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+#thu-local-home-note {
+  margin: 0 0 20px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: #4a2465;
+  background: #f4eff7;
+  border-left: 4px solid #5f2c83;
+  border-radius: 4px;
+  font: 12px/1.6 "Microsoft YaHei UI", "PingFang SC", sans-serif;
+}
+#thu-local-home-note strong { margin-right: 7px; }
+#thu-local-home-note button { border: 0; padding: 0; color: #5f2c83; background: transparent; font-weight: 700; cursor: pointer; white-space: nowrap; }
+#thu-local-stat-note { margin: -12px 0 30px; padding: 10px 14px; border-left: 3px solid #2f805f; background: #f3faf6; color: #35604f; font: 13px/1.6 "Microsoft YaHei UI", "PingFang SC", sans-serif; }
+#thu-local-archive { margin-top: 28px; border: 1px solid #d9cfe0; border-radius: 8px; overflow: hidden; background: #fff; }
+.thu-local-count-note { margin-left: 8px; color: #5f2c83; font-size: 12px; font-weight: 700; }
+.thu-local-archive-head { padding: 17px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; color: #fff; background: #4a2465; }
+.thu-local-archive-head h3 { margin: 0 0 4px; font-size: 16px; }
+.thu-local-archive-head p { margin: 0; color: #d9cde1; font-size: 11px; line-height: 1.5; }
+.thu-local-archive-stamp { flex: 0 0 auto; padding: 6px 9px; border: 1px solid rgba(255,255,255,.45); border-radius: 4px; font: 700 9px ui-monospace, Consolas, monospace; letter-spacing: .12em; transform: rotate(-2deg); }
+.thu-local-empty { padding: 17px 20px; color: #706977; background: #faf8fb; font-size: 12px; }
+.thu-local-card { position: relative; padding: 20px; border-top: 1px solid #ebe5ef; }
+.thu-local-card::before { content: "LOCAL"; position: absolute; top: 20px; right: 20px; color: #7c548f; font: 700 9px ui-monospace, Consolas, monospace; letter-spacing: .13em; }
+.thu-local-rating { margin-bottom: 9px; color: #5f2c83; font-size: 13px; font-weight: 700; }
+.thu-local-comment { padding-right: 55px; color: #333; white-space: pre-line; font-size: 14px; line-height: 1.75; }
+.thu-local-meta { margin-top: 12px; display: flex; gap: 12px; color: #8b8490; font-size: 11px; }
+.thu-local-more { width: 100%; border: 0; border-top: 1px solid #ebe5ef; padding: 12px; color: #5f2c83; background: #faf8fb; font-size: 12px; font-weight: 700; cursor: pointer; }
+@media (max-width: 620px) {
+  #thu-local-home-note { align-items: flex-start; flex-direction: column; }
+  .thu-local-archive-head { align-items: flex-start; }
+  .thu-local-comment { padding-right: 0; }
+  .thu-local-card::before { position: static; display: block; margin-bottom: 7px; }
+}
+@media (prefers-reduced-motion: reduce) { #thu-local-library-badge { backdrop-filter: none; } }

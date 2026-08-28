@@ -1,0 +1,6 @@
+*-smoke.png
+__pycache__/
+*.pyc
+/data/reviews-backup.json
+/data/current-reviews.json
+/dist/*.zip
